@@ -1,8 +1,5 @@
-import ButtonIcon from "./ui/ButtonIcon";
-import { FaRegEdit } from "react-icons/fa";
-
 function App() {
-  return <div className="App"></div>;
+  return <div className="App">Welcome to the Forkify react project</div>;
 }
 
 export default App;
