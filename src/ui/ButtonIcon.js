@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 const StyledButtonIcon = styled.button`
   background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
 `;
 
 export default function ButtonIcon({ children, icon }) {

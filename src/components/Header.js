@@ -11,18 +11,22 @@ const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: blanchedalmond;
+  background-color: #f9f5f3;
 `;
 
 const StyledProfile = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid red;
 `;
 
 const StyledActions = styled.div`
   display: flex;
   gap: 1rem;
+  height: 50px;
 `;
 export default function Header() {
   return (
@@ -33,8 +37,28 @@ export default function Header() {
       </StyledProfile>
       <SearchBar />
       <StyledActions>
-        <ButtonIcon icon={<FaRegEdit />}>ADD RECEPIE</ButtonIcon>
-        <ButtonIcon icon={<FaRegBookmark />}>BookMarks</ButtonIcon>
+        <ButtonIcon
+          icon={
+            <FaRegEdit
+              style={{
+                color: "tomato",
+                height: "30px",
+                width: "25px",
+              }}
+            />
+          }
+        >
+          ADD RECIPE
+        </ButtonIcon>
+        <ButtonIcon
+          icon={
+            <FaRegBookmark
+              style={{ color: "tomato", height: "23px", width: "25px" }}
+            />
+          }
+        >
+          BOOKMARKS
+        </ButtonIcon>
       </StyledActions>
     </StyledHeader>
   );
