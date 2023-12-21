@@ -10,7 +10,12 @@ const StyledInput = styled.input`
 `;
 
 const StyledSearchButton = styled.button`
-  border: px solid yellow;
+  border: 1px solid yellow;
+  display: flex;
+  gap: 2rem;
+  border-radius: 20px;
+  height: 40px;
+  width: 150px;
 `;
 
 export default function SearchBar() {
@@ -18,8 +23,8 @@ export default function SearchBar() {
     <StyledForm>
       <StyledInput placeholder="Search over 1,000,000 " />,
       <StyledSearchButton>
-        <IoSearchOutline style={{ color: "white" }} />
-        <p style={{ color: "white" }}>Search</p>
+        <IoSearchOutline style={{ color: "black" }} />
+        <p style={{ color: "black" }}>SEARCH</p>
       </StyledSearchButton>
     </StyledForm>
   );
