@@ -13,7 +13,9 @@ const StyledInput = styled.input`
 const StyledSearchButton = styled.button`
   border: 1px solid yellow;
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   border-radius: 20px;
   height: 40px;
   width: 150px;
