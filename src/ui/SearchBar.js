@@ -7,6 +7,7 @@ const StyledForm = styled.form`
 
 const StyledInput = styled.input`
   background-color: beige;
+  z-index: -1;
 `;
 
 const StyledSearchButton = styled.button`
@@ -16,6 +17,8 @@ const StyledSearchButton = styled.button`
   border-radius: 20px;
   height: 40px;
   width: 150px;
+  position: relative;
+  top: 4px;
 `;
 
 export default function SearchBar() {
