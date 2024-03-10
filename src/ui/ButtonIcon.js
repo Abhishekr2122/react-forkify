@@ -9,6 +9,7 @@ const StyledButtonIcon = styled.button`
   justify-content: center;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 export default function ButtonIcon({ children, icon }) {
