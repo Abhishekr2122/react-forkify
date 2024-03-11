@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledProfile>
-        <Logo />
+        <Logo source="/" />
         <p>Forkify</p>
       </StyledProfile>
       <SearchBar />
