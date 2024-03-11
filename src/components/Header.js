@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Logo from "../ui/Logo";
 import SearchBar from "../ui/SearchBar";
 import ButtonIcon from "../ui/ButtonIcon";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
+import Logo from "../ui/Logo";
 
 const StyledHeader = styled.header`
   border: "1px solid yellow";
@@ -20,7 +20,7 @@ const StyledProfile = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 const StyledActions = styled.div`
@@ -32,8 +32,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledProfile>
-        <Logo source="/" />
-        <p>Forkify</p>
+        <Logo source="/forkify-image.png" />
       </StyledProfile>
       <SearchBar />
       <StyledActions>
