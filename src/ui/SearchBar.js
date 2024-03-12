@@ -1,19 +1,22 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { IoMdSearch } from "react-icons/io";
+import { CiSearch } from "react-icons/ci";
 
 const StyledForm = styled.form`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  /* width: auto; */
 `;
 
 const Styledsearchbar = styled.input`
   border-radius: 25px;
   padding: 15px;
   border-style: none;
-  /* width: 100%; */
+  border: 1px solid #f9f5f3;
+
+  &:focus {
+    outline: 1px solid thistle;
+  }
 `;
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,13 +35,15 @@ export default function SearchBar() {
           handleSearchQuery(e);
         }}
       />
-      <IoMdSearch
+
+      <CiSearch
         style={{
-          height: "25px",
-          width: "25px",
+          height: "22px",
+          width: "22px",
           backgroundColor: "white",
           borderRadius: "15px",
-          padding: "4px",
+          padding: "6px",
+          cursor: "pointer",
         }}
       />
     </StyledForm>
