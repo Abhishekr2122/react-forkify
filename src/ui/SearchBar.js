@@ -20,9 +20,26 @@ const Styledsearchbar = styled.input`
 `;
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchRecipe, setSearchRecipe] = useState([]);
+
+  console.log("This is the search recipe", searchRecipe);
 
   function handleSearchQuery(e) {
     setSearchQuery(e.target.value);
+  }
+
+  function handleSearchRecipe(searchItem) {
+    async function fetchRecipe() {
+      const res = await fetch(
+        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchItem}&key=a31bd9bf-bf6d-4507-9325-c12f37e7b17e`
+      );
+
+      const data = await res.json();
+
+      setSearchRecipe(data);
+    }
+
+    fetchRecipe();
   }
 
   return (
@@ -44,6 +61,15 @@ export default function SearchBar() {
           borderRadius: "15px",
           padding: "6px",
           cursor: "pointer",
+        }}
+        onClick={function () {
+          if (searchQuery.length > 0) {
+            handleSearchRecipe(searchQuery);
+          }
+
+          if (searchQuery.length > 0) {
+            setSearchQuery("");
+          }
         }}
       />
     </StyledForm>
