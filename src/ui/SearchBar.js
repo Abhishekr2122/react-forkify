@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
+import { useRecipe } from "../Context/RecipeProvider";
 
 const StyledForm = styled.form`
   display: flex;
@@ -19,11 +20,9 @@ const Styledsearchbar = styled.input`
   }
 `;
 export default function SearchBar() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchRecipe, setSearchRecipe] = useState([]);
-
+  const { searchQuery, setSearchQuery, searchRecipe, setSearchRecipe } =
+    useRecipe();
   console.log("This is the search recipe", searchRecipe);
-
   function handleSearchQuery(e) {
     setSearchQuery(e.target.value);
   }

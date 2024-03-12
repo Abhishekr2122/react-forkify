@@ -1,9 +1,12 @@
+import RecipeProvider from "./Context/RecipeProvider";
 import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <RecipeProvider>
+        <Header />
+      </RecipeProvider>
     </div>
   );
 }
