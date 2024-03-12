@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
 import { useRecipe } from "../Context/RecipeProvider";
+import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 
 const StyledForm = styled.form`
   display: flex;
@@ -20,8 +21,14 @@ const Styledsearchbar = styled.input`
   }
 `;
 export default function SearchBar() {
-  const { searchQuery, setSearchQuery, searchRecipe, setSearchRecipe } =
-    useRecipe();
+  const {
+    searchQuery,
+    setSearchQuery,
+    searchRecipe,
+    setSearchRecipe,
+    isLoading,
+    setIsLoading,
+  } = useRecipe();
   console.log("This is the search recipe", searchRecipe);
   function handleSearchQuery(e) {
     setSearchQuery(e.target.value);
@@ -29,13 +36,14 @@ export default function SearchBar() {
 
   function handleSearchRecipe(searchItem) {
     async function fetchRecipe() {
+      isLoading(true);
       const res = await fetch(
         `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchItem}&key=a31bd9bf-bf6d-4507-9325-c12f37e7b17e`
       );
 
       const data = await res.json();
-
       setSearchRecipe(data);
+      setIsLoading(false);
     }
 
     fetchRecipe();
