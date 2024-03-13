@@ -5,7 +5,7 @@ const Recipe = createContext();
 export default function RecipeProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchRecipe, setSearchRecipe] = useState([]);
-  const [isLoading, setISLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <Recipe.Provider
       value={{
@@ -14,7 +14,7 @@ export default function RecipeProvider({ children }) {
         searchRecipe,
         setSearchRecipe,
         isLoading,
-        setISLoading,
+        setIsLoading,
       }}
     >
       {children}

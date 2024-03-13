@@ -36,7 +36,7 @@ export default function SearchBar() {
 
   function handleSearchRecipe(searchItem) {
     async function fetchRecipe() {
-      isLoading(true);
+      setIsLoading(true);
       const res = await fetch(
         `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchItem}&key=a31bd9bf-bf6d-4507-9325-c12f37e7b17e`
       );
