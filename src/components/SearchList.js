@@ -68,8 +68,15 @@ function List({ data }) {
 
 function ErrorMessage() {
   return (
-    <div>
-      <BiError style={{ color: "tomato" }} />
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "1rem",
+        padding: "10px",
+      }}
+    >
+      <BiError style={{ color: "tomato", height: "60px", width: "60px" }} />
       <p>{`No recipes found for your query! Please try again ;)`}</p>
     </div>
   );
