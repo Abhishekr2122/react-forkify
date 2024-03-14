@@ -11,7 +11,7 @@ function List({ data }) {}
 function ErrorMessage() {
   return (
     <div>
-      <BiError />
+      <BiError style={{ color: "tomato" }} />
       <p>{`No recipes found for your query! Please try again ;)`}</p>
     </div>
   );
