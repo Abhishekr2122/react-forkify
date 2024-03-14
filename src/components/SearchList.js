@@ -90,7 +90,18 @@ export default function SearchList() {
   if (isLoading) {
     return (
       <StyledListContainer>
-        <p>loading.....</p>
+        <p
+          style={{
+            border: "1px solid yellow",
+            width: "100%",
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          loading.....
+        </p>
       </StyledListContainer>
     );
   }
