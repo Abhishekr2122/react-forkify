@@ -5,7 +5,7 @@ import { BiError } from "react-icons/bi";
 const StyledListContainer = styled.div`
   /* border: 1px solid yellow; */
   height: 89vh;
-  width: 20vw;
+  width: 25vw;
   overflow: scroll;
   display: flex;
 `;
@@ -22,22 +22,29 @@ function List({ data }) {
               display: "flex",
               alignItems: "center",
               gap: "1rem",
-              padding: "20px",
-              // border: "1px solid yellow",
+              padding: "25px",
+              height: "10%",
               cursor: "pointer",
             }}
+            key={i}
           >
-            <img
-              src={citem.image_url}
-              alt="not found"
-              style={{ height: "60px", width: "60px", borderRadius: "50px" }}
-            />
             <div>
+              <img
+                src={citem.image_url}
+                alt="not found"
+                style={{
+                  height: "60px",
+                  width: "60px",
+                  borderRadius: "60px",
+                }}
+              />
+            </div>
+
+            <div style={{ width: "100%" }}>
               <h3
                 style={{
                   color: "tomato",
                   fontSize: "12px",
-                  // border: "1px solid red",
                 }}
               >
                 {citem.title}
