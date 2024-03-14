@@ -6,6 +6,7 @@ export default function RecipeProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchRecipe, setSearchRecipe] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [finalQuery, setFinalQuery] = useState("");
   return (
     <Recipe.Provider
       value={{
@@ -15,6 +16,8 @@ export default function RecipeProvider({ children }) {
         setSearchRecipe,
         isLoading,
         setIsLoading,
+        finalQuery,
+        setFinalQuery,
       }}
     >
       {children}

@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { useRecipe } from "../Context/RecipeProvider";
 import { BiError } from "react-icons/bi";
 
+const StyledListContainer = styled.div`
+  border: 1px solid yellow;
+`;
+
 function List({ data }) {}
 
 function ErrorMessage() {
@@ -14,17 +18,25 @@ function ErrorMessage() {
 }
 
 export default function SearchList() {
-  const { searchRecipe, isLoading, searchQuery } = useRecipe();
+  const { searchRecipe, isLoading, finalQuery } = useRecipe();
   const { data, results } = searchRecipe;
   console.log(results);
 
   if (isLoading) {
     return (
-      <div>
+      <StyledListContainer>
         <p>loading.....</p>
-      </div>
+      </StyledListContainer>
     );
   }
 
-  return <div></div>;
+  if (!finalQuery) {
+    return null;
+  }
+
+  return (
+    <StyledListContainer>
+      {results > 0 ? <List /> : <ErrorMessage />}
+    </StyledListContainer>
+  );
 }

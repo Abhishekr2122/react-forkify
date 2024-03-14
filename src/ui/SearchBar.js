@@ -10,7 +10,7 @@ const StyledForm = styled.form`
   gap: 0.5rem;
 `;
 
-const Styledsearchbar = styled.input`
+const StyledSearchbar = styled.input`
   border-radius: 25px;
   padding: 15px;
   border-style: none;
@@ -28,6 +28,7 @@ export default function SearchBar() {
     setSearchRecipe,
     isLoading,
     setIsLoading,
+    setFinalQuery,
   } = useRecipe();
   console.log("This is the search recipe", searchRecipe);
   function handleSearchQuery(e) {
@@ -51,7 +52,7 @@ export default function SearchBar() {
 
   return (
     <StyledForm>
-      <Styledsearchbar
+      <StyledSearchbar
         placeholder="Search over 1,000,000 recipes..."
         type="text"
         value={searchQuery}
@@ -75,6 +76,7 @@ export default function SearchBar() {
           }
 
           if (searchQuery.length > 0) {
+            setFinalQuery(searchQuery);
             setSearchQuery("");
           }
         }}
