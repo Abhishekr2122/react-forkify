@@ -3,10 +3,61 @@ import { useRecipe } from "../Context/RecipeProvider";
 import { BiError } from "react-icons/bi";
 
 const StyledListContainer = styled.div`
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
+  height: 89vh;
+  width: 20vw;
+  overflow: scroll;
+  display: flex;
 `;
 
-function List({ data }) {}
+const StyledList = styled.div``;
+
+function List({ data }) {
+  return (
+    <StyledList>
+      {data?.recipes.map(function (citem, i) {
+        return (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+              padding: "20px",
+              // border: "1px solid yellow",
+              cursor: "pointer",
+            }}
+          >
+            <img
+              src={citem.image_url}
+              alt="not found"
+              style={{ height: "60px", width: "60px", borderRadius: "50px" }}
+            />
+            <div>
+              <h3
+                style={{
+                  color: "tomato",
+                  fontSize: "12px",
+                  // border: "1px solid red",
+                }}
+              >
+                {citem.title}
+              </h3>
+              <h4
+                style={{
+                  color: "black",
+                  fontSize: "12px",
+                  fontWeight: "600",
+                }}
+              >
+                {citem.publisher}
+              </h4>
+            </div>
+          </div>
+        );
+      })}
+    </StyledList>
+  );
+}
 
 function ErrorMessage() {
   return (
@@ -21,7 +72,7 @@ export default function SearchList() {
   const { searchRecipe, isLoading, finalQuery } = useRecipe();
   const { data, results } = searchRecipe;
   console.log(results);
-
+  console.log("This is the data in the list component", data?.recipes);
   if (isLoading) {
     return (
       <StyledListContainer>
@@ -36,7 +87,7 @@ export default function SearchList() {
 
   return (
     <StyledListContainer>
-      {results > 0 ? <List /> : <ErrorMessage />}
+      {results > 0 ? <List data={data} /> : <ErrorMessage />}
     </StyledListContainer>
   );
 }
