@@ -10,24 +10,30 @@ const StyledListContainer = styled.div`
   display: flex;
 `;
 
-const StyledList = styled.div``;
+const StyledList = styled.div`
+  margin-top: 4px;
+`;
 
+const ListContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px;
+  height: 8%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+
+  &:hover {
+    background-color: #f9f5f3;
+    transition-duration: 0.5s;
+  }
+`;
 function List({ data }) {
   return (
     <StyledList>
       {data?.recipes.map(function (citem, i) {
         return (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-              padding: "25px",
-              height: "10%",
-              cursor: "pointer",
-            }}
-            key={i}
-          >
+          <ListContainer key={citem.id}>
             <div>
               <img
                 src={citem.image_url}
@@ -44,7 +50,7 @@ function List({ data }) {
               <h3
                 style={{
                   color: "tomato",
-                  fontSize: "12px",
+                  fontSize: "13px",
                 }}
               >
                 {citem.title}
@@ -59,7 +65,7 @@ function List({ data }) {
                 {citem.publisher}
               </h4>
             </div>
-          </div>
+          </ListContainer>
         );
       })}
     </StyledList>
@@ -92,7 +98,6 @@ export default function SearchList() {
       <StyledListContainer>
         <p
           style={{
-            border: "1px solid yellow",
             width: "100%",
             textAlign: "center",
             display: "flex",
