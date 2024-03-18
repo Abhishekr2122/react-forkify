@@ -1,5 +1,6 @@
 import RecipeProvider from "./Context/RecipeProvider";
 import Header from "./components/Header";
+import MainContainer from "./components/MainContainer";
 import SearchList from "./components/SearchList";
 
 function App() {
@@ -7,7 +8,10 @@ function App() {
     <div className="App">
       <RecipeProvider>
         <Header />
-        <SearchList />
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <SearchList />
+          <MainContainer />
+        </div>
       </RecipeProvider>
     </div>
   );

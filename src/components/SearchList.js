@@ -8,6 +8,11 @@ const StyledListContainer = styled.div`
   width: 25vw;
   overflow: scroll;
   display: flex;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledList = styled.div`
@@ -103,6 +108,8 @@ export default function SearchList() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            fontSize: "30px",
+            color: "tomato",
           }}
         >
           loading.....
