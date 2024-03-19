@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useRecipe } from "../Context/RecipeProvider";
 import { BiError } from "react-icons/bi";
+import { useState } from "react";
 
 const StyledListContainer = styled.div`
   /* border: 1px solid yellow; */
@@ -106,8 +107,15 @@ function ErrorMessage() {
 export default function SearchList() {
   const { searchRecipe, isLoading, finalQuery } = useRecipe();
   const { data, results } = searchRecipe;
+  const [currentPage, setCurrentPage] = useState(null);
   const pages = Math.trunc(data?.recipes?.length / 10) + 1;
   const pagesArr = [];
+
+  console.log(currentPage);
+
+  function handleCurrentPage(crrPage) {
+    setCurrentPage(crrPage);
+  }
 
   for (let i = 0; i < pages; i++) {
     pagesArr.push(
@@ -116,7 +124,10 @@ export default function SearchList() {
         style={{
           backgroundColor: "transparent",
           border: "1px solid tomato",
-          borderRadius: "40px",
+          borderRadius: "60px",
+        }}
+        onClick={function () {
+          handleCurrentPage(i + 1);
         }}
       >
         {i + 1}
