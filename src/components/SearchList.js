@@ -33,7 +33,7 @@ const ListContainer = styled.div`
     transition-duration: 0.5s;
   }
 `;
-function List({ data }) {
+function List({ data, pagesArr }) {
   return (
     <StyledList>
       {data?.recipes.map(function (citem, i) {
@@ -73,6 +73,16 @@ function List({ data }) {
           </ListContainer>
         );
       })}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+          justifyContent: "center",
+        }}
+      >
+        {pagesArr}
+      </div>
     </StyledList>
   );
 }
@@ -96,8 +106,24 @@ function ErrorMessage() {
 export default function SearchList() {
   const { searchRecipe, isLoading, finalQuery } = useRecipe();
   const { data, results } = searchRecipe;
-  console.log(results);
-  console.log("This is the data in the list component", data?.recipes);
+  const pages = Math.trunc(data?.recipes?.length / 10) + 1;
+  const pagesArr = [];
+
+  for (let i = 0; i < pages; i++) {
+    pagesArr.push(
+      <button
+        key={i}
+        style={{
+          backgroundColor: "transparent",
+          border: "1px solid tomato",
+          borderRadius: "40px",
+        }}
+      >
+        {i + 1}
+      </button>
+    );
+  }
+
   if (isLoading) {
     return (
       <StyledListContainer>
@@ -124,7 +150,11 @@ export default function SearchList() {
 
   return (
     <StyledListContainer>
-      {results > 0 ? <List data={data} /> : <ErrorMessage />}
+      {results > 0 ? (
+        <List data={data} pagesArr={pagesArr} />
+      ) : (
+        <ErrorMessage />
+      )}
     </StyledListContainer>
   );
 }
