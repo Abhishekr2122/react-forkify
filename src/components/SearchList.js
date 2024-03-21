@@ -111,8 +111,6 @@ export default function SearchList() {
   const pages = Math.trunc(data?.recipes?.length / 10) + 1;
   const pagesArr = [];
 
-  console.log(currentPage);
-
   function handleCurrentPage(crrPage) {
     setCurrentPage(crrPage);
   }
